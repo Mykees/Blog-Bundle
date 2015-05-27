@@ -1,0 +1,10 @@
+Mvc\BlogBundle\Entity\User:
+    properties:
+        username:
+            - Length:
+                min: 4
+                minMessage: "Votre nom doit faire au moins {{ limit }} caractères"
+        password:
+            - Length:
+                min: 8
+                minMessage: "Votre nom doit faire au moins {{ limit }} caractères"

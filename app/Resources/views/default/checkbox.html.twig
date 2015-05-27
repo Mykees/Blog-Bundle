@@ -1,0 +1,18 @@
+{% block choice_widget %}
+    <div {{ block('widget_container_attributes') }}>
+        {% for name, choices in form.vars.choices %}
+            <ul>
+                <li class="checkbox_category">
+                    <h3>{{ name }}</h3>
+                </li>
+
+                {% for key,choice in choices %}
+                    <li class="indent">
+                        {{ form_widget(form[key]) }}
+                        {{ form_label(form[key]) }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,68 @@
+# POSTS
+posts_admin_index:
+    path:     /
+    defaults: { _controller: MvcBlogBundle:Admin/Posts:index }
+
+posts_admin_add:
+    path:    /add
+    defaults: { _controller: MvcBlogBundle:Admin/Posts:add }
+
+
+posts_admin_update:
+    path:   /edit/{id}
+    defaults: { _controller: MvcBlogBundle:Admin/Posts:update }
+    requirements:
+        id: \d+
+
+posts_admin_delete:
+    path:   /delete/{id}
+    defaults: { _controller: MvcBlogBundle:Admin/Posts:delete }
+    requirements:
+        id: \d+
+
+
+# CATEGORIES
+categories_admin_index:
+    path:     /category
+    defaults: { _controller: MvcBlogBundle:Admin/Categories:index }
+
+categories_admin_add:
+    path:    /category/add
+    defaults: { _controller: MvcBlogBundle:Admin/Categories:add }
+
+
+categories_admin_update:
+    path:   /category/edit/{id}
+    defaults: { _controller: MvcBlogBundle:Admin/Categories:update }
+    requirements:
+        id: \d+
+
+categories_admin_delete:
+    path:   /category/delete/{id}
+    defaults: { _controller: MvcBlogBundle:Admin/Categories:delete }
+    requirements:
+        id: \d+
+
+
+
+# USERS
+users_admin_index:
+    path:     /user
+    defaults: { _controller: MvcBlogBundle:Admin/Users:index }
+
+users_admin_add:
+    path:    /user/add
+    defaults: { _controller: MvcBlogBundle:Admin/Users:add }
+
+
+users_admin_update:
+    path:   /user/edit/{id}
+    defaults: { _controller: MvcBlogBundle:Admin/Users:update }
+    requirements:
+        id: \d+
+
+users_admin_delete:
+    path:   /user/delete/{id}
+    defaults: { _controller: MvcBlogBundle:Admin/Users:delete }
+    requirements:
+        id: \d+

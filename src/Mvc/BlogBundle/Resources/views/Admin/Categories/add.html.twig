@@ -1,0 +1,30 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <div class="page-header">
+        <h1>Edit Categorie</h1>
+    </div>
+    <p><a href="{{ path('categories_admin_index') }}" class="btn btn-primary">< Back to categories list</a></p>
+
+
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form_row(form.name,{'attr':{'class':'form-control'}}) }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                {{ form_row(form.slug,{'attr':{'class':'form-control'}}) }}
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Envoyer">
+
+    {{ form_end(form) }}
+
+
+
+{% endblock %}

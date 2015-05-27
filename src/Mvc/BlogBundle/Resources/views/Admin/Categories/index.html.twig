@@ -1,0 +1,31 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <div class="page-header">
+        <h1>Manage Categories</h1>
+    </div>
+    <p><a href="{{ path('categories_admin_add') }}" class="btn btn-primary">Add a new categorie</a></p>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ categorie.id }}</td>
+                <td>{{ categorie.name }}</td>
+                <td>
+                    <a href="{{ path('categories_admin_update',{'id':categorie.id}) }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ path('categories_admin_delete',{'id':categorie.id}) }}" class="btn btn-danger" onclick="return confirm('Are you sure ?')">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

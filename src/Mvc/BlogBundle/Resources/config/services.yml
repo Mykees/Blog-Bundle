@@ -1,0 +1,18 @@
+services:
+#    mvc_blog.example:
+#        class: Mvc\BlogBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+
+    markdown:
+        class: Mvc\BlogBundle\Util\Markdown
+
+    tag.manager:
+        class: Mvc\BlogBundle\Manager\TagManager
+        arguments: ['@service_container',"@doctrine.orm.entity_manager"]
+
+    form_tag:
+        class: Mvc\BlogBundle\Form\TagType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: mvc_blogbundle_tags }
