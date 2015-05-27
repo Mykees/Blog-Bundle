@@ -45,7 +45,7 @@ class BlogController extends Controller
         $categories = $this->getDoctrine()->getManager()->getRepository('MvcBlogBundle:Category')->findAllWithCount();
         $posts = $this->getDoctrine()->getManager()->getRepository('MvcBlogBundle:Post')->findLast();
 
-        return $this->render('::elements/sidebar.html.twig',['posts'=>$posts,'categories'=>$categories]);
+        return $this->render('MvcBlogBundle::elements/sidebar.html.twig',['posts'=>$posts,'categories'=>$categories]);
     }
 
 

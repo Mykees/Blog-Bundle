@@ -16,3 +16,9 @@ services:
         arguments: ["@doctrine.orm.entity_manager"]
         tags:
             - { name: form.type, alias: mvc_blogbundle_tags }
+
+    markdow.extension:
+        class: Mvc\BlogBundle\Twig\Extension\MarkdownExtension
+        arguments: ["@markdown"]
+        tags:
+            - { name: twig.extension }
