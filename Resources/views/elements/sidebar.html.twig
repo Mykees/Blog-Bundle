@@ -1,0 +1,18 @@
+<h4>Categories</h4>
+<div class="list-group">
+    {% for category in categories %}
+        <a href="{{ path('mvc_blog_by_category',{'slug':category[0].slug}) }}" class="list-group-item">
+            <span class="badge">{{ category.postCount }}</span>
+            {{ category[0].name }}
+        </a>
+    {% endfor %}
+</div>
+
+<h4>Last posts</h4>
+<div class="list-group">
+    {% for post in posts %}
+        <a href="{{ path('mvc_blog_show',{'slug':post.slug,'id':post.id}) }}" class="list-group-item">
+            {{ post.name }}
+        </a>
+    {% endfor %}
+</div>

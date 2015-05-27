@@ -1,0 +1,30 @@
+<div class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('posts_admin_index') }}">Admin</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Sections <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ path('posts_admin_index') }}">Articles</a></li>
+                    <li><a href="{{ path('categories_admin_index') }}">Categories</a></li>
+                    <li><a href="{{ path('users_admin_index') }}">Users</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ path('mvc_blog_homepage') }}">< back to the front </a></li>
+                <li><a href="login.html">logout</a></li>
+            </ul>
+        </div>
+
+    </div><!-- /.container -->
+</div>
