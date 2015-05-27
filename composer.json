@@ -5,7 +5,7 @@
     "description": "Just a simple blog for my tests",
     "autoload": {
         "psr-0": {
-            "Mykees\\BlogBundle": ""
+            "Mvc\\BlogBundle": ""
         }
     },
     "require": {
