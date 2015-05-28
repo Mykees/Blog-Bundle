@@ -24,7 +24,7 @@ class DefaultControllerTest extends WebTestCase
         $this->client = static::createClient();
         $this->container = $this->client->getContainer();
         $this->manager = $this->container->get('mk.media.manager');
-        $this->image = $this->client->getKernel()->getRootDir().'/../web/img/';
+        $this->image = $this->client->getKernel()->getRootDir();
 
         parent::setUp();
     }
