@@ -39,4 +39,20 @@ class DefaultControllerTest extends WebTestCase
         $this->assertEquals(200,$this->client->getResponse()->getStatusCode());
         $this->assertEquals(1,$crawler->filter('.count-tr')->count());
     }
+
+    public function testFindAllMediasForAModel()
+    {
+        $medias  = $this->manager->findMediasByModelAndId('Post',1);
+        $this->assertGreaterThan(1,count($medias));
+        $this->assertEquals(2, count($medias));
+    }
+
+    public function testRemoveFile()
+    {
+        $this->client->request('GET', '/admin/medias/delete/Post/MvcBlogBundle/9');
+        $this->assertEquals(200,$this->client->getResponse()->getStatusCode());
+
+        $medias  = $this->manager->findMediasByModelAndId('Post',2);
+        $this->assertEquals(0, count($medias));
+    }
 }
