@@ -30,6 +30,13 @@ class DefaultControllerTest extends WebTestCase
 
     public function testListMedias()
     {
-        return true;
+        $crawler = $this->client->request('GET', '/admin/medias/Post/MvcBlogBundle/1');
+        $this->assertEquals(200,$this->client->getResponse()->getStatusCode());
+        $this->assertEquals(2,$crawler->filter('.count-tr')->count());
+
+
+        $crawler = $this->client->request('GET', '/admin/medias/Post/MvcBlogBundle/2');
+        $this->assertEquals(200,$this->client->getResponse()->getStatusCode());
+        $this->assertEquals(1,$crawler->filter('.count-tr')->count());
     }
 }
