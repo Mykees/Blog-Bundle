@@ -57,29 +57,29 @@ class DefaultControllerTest extends WebTestCase
     }
 
 
-    public function testValidUploadFileFormat()
-    {
-        $filePath = dirname(__DIR__).'/../Resources/public/images/elly.jpg';
-        $file = new UploadedFile(
-            $filePath,
-            'elly.jpg',
-            'image/jpeg',
-            123
-        );
-        $this->client->request(
-            'POST',
-            '/admin/medias/add/Post/MvcBlogBundle/12',
-            ['name'=>'Elly'],
-            ['file'=>$file],
-            ['HTTP_X-Requested-With' => 'XMLHttpRequest']
-        );
-
-        $this->assertEquals(200,$this->client->getResponse()->getStatusCode());
-        $medias  = $this->manager->findMediasByModelAndId('Post',12);
-
-        $this->assertEquals(1, count($medias));
-
-    }
+//    public function testValidUploadFileFormat()
+//    {
+//        $filePath = dirname(__DIR__).'/../Resources/public/images/elly.jpg';
+//        $file = new UploadedFile(
+//            $filePath,
+//            'elly.jpg',
+//            'image/jpeg',
+//            123
+//        );
+//        $this->client->request(
+//            'POST',
+//            '/admin/medias/add/Post/MvcBlogBundle/12',
+//            ['name'=>'Elly'],
+//            ['file'=>$file],
+//            ['HTTP_X-Requested-With' => 'XMLHttpRequest']
+//        );
+//
+//        $this->assertEquals(200,$this->client->getResponse()->getStatusCode());
+//        $medias  = $this->manager->findMediasByModelAndId('Post',12);
+//
+//        $this->assertEquals(1, count($medias));
+//
+//    }
 
     public function testInvalidUploadFileFormat()
     {
