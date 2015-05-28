@@ -55,4 +55,53 @@ class DefaultControllerTest extends WebTestCase
         $medias  = $this->manager->findMediasByModelAndId('Post',2);
         $this->assertEquals(0, count($medias));
     }
+
+
+    public function testValidUploadFileFormat()
+    {
+        $filePath = dirname(__DIR__).'/../Resources/public/images/elly.jpg';
+        $file = new UploadedFile(
+            $filePath,
+            'elly.jpg',
+            'image/jpeg',
+            123
+        );
+        $this->client->request(
+            'POST',
+            '/admin/medias/add/Post/MvcBlogBundle/12',
+            ['name'=>'Elly'],
+            ['file'=>$file],
+            ['HTTP_X-Requested-With' => 'XMLHttpRequest']
+        );
+
+        $this->assertEquals(200,$this->client->getResponse()->getStatusCode());
+        $medias  = $this->manager->findMediasByModelAndId('Post',12);
+
+        $this->assertEquals(1, count($medias));
+
+    }
+
+    public function testInvalidUploadFileFormat()
+    {
+        $filePath = dirname(__DIR__).'/../Resources/public/images/thumb.png';
+        $file = new UploadedFile(
+            $filePath,
+            'thumb.png',
+            'image/png',
+            123
+        );
+        $this->client->request(
+            'POST',
+            '/admin/medias/add/Post/MvcBlogBundle/15',
+            ['name'=>'thumb'],
+            ['file'=>$file],
+            ['HTTP_X-Requested-With' => 'XMLHttpRequest']
+        );
+
+        $this->assertEquals(500,$this->client->getResponse()->getStatusCode());
+
+        $this->manager = $this->container->get('mk.media.manager');
+        $medias  = $this->manager->findMediasByModelAndId('Post',15);
+        $this->assertEquals(0, count($medias));
+    }
 }
