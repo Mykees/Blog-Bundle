@@ -10,14 +10,14 @@ before_script:
     - mysql -e "create database test;"
     - mysql -e "set global wait_timeout=600"
     - composer self-update
+    - composer require symfony/framework-standard-edition:${SYMFONY_VERSION}
     - composer install --dev
-    - php app/console doctrine:database:create --env=test
-    - php app/console doctrine:schema:create --env=test
-    - php app/console doctrine:fixtures:load -n --env=test
+    - app/console --env=test doctrine:schema:create
+    - app/console --env=test doctrine:schema:update --force
 
 
 after_script:
     - php app/console --env=test doctrine:database:drop --force
 
 script:
-    - phpunit -c app
+    - phpunit
