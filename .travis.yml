@@ -12,12 +12,12 @@ before_script:
     - composer self-update
     - composer require symfony/symfony:${SYMFONY_VERSION}
     - composer install --dev
-    - php Tests/Fixtures/app/console --env=test doctrine:schema:create
-    - php Tests/Fixtures/app/console --env=test doctrine:schema:update --force
+    - php app/console --env=test doctrine:schema:create
+    - php app/console --env=test doctrine:schema:update --force
 
 
 after_script:
     - php Tests/Fixtures/app/console --env=test doctrine:database:drop --force
 
 script:
-    - phpunit -c ../../vendor/mykees/symfony2-media-bundle/Mykees/MediaBundle/Tests/Controller/MediasControllerTest.php
+    - vendor/bin/phpunit
