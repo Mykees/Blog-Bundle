@@ -29,7 +29,7 @@ twig:
     strict_variables: "%kernel.debug%"
 
 assetic:
-    read_from: "%kernel.root_dir%/../../web"
+    read_from: "%kernel.root_dir%/../web"
     debug:          "%kernel.debug%"
     use_controller: false
     bundles:        [ ]
