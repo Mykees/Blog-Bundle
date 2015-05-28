@@ -26,3 +26,5 @@ if( !$autoload )
     );
 }
 AnnotationRegistry::registerLoader( array( $autoload, 'loadClass' ) );
+
+return $autoload;
