@@ -60,7 +60,6 @@ class DefaultControllerTest extends WebTestCase
 
     public function testValidUploadFileFormat()
     {
-        var_dump($this->image);die();
         $filePath = dirname(__DIR__).'/../Resources/public/images/elly.jpg';
         $file = new UploadedFile(
             $filePath,
