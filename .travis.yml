@@ -8,7 +8,6 @@ env:
 
 before_script:
     - mysql -e "create database test;"
-    - mysql -e "set global wait_timeout=600"
     - composer self-update
     - composer require symfony/symfony:${SYMFONY_VERSION}
     - composer install --dev
@@ -21,4 +20,4 @@ after_script:
     - php Tests/Fixtures/app/console --env=test doctrine:database:drop --force
 
 script:
-    - phpunit -c
+    - phpunit
