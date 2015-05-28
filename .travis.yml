@@ -11,8 +11,8 @@ before_script:
     - composer self-update
     - composer require symfony/symfony:${SYMFONY_VERSION}
     - composer install --dev
-    - chmod -R 777 Tests/Fixtures/app/web
-    - chmod -R 777 Tests/Fixtures/app/web/img
+    - chmod -R 777 Tests/Fixtures/web
+    - chmod -R 777 Tests/Fixtures/web/img
     - php Tests/Fixtures/app/console --env=test doctrine:schema:create
     - php Tests/Fixtures/app/console --env=test doctrine:schema:update --force
     - php Tests/Fixtures/app/console --env=test assetic:dump
