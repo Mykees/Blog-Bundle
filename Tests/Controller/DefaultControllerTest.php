@@ -24,7 +24,7 @@ class DefaultControllerTest extends WebTestCase
         $this->client = static::createClient();
         $this->container = $this->client->getContainer();
         $this->manager = $this->container->get('mk.media.manager');
-        $this->image = $this->client->getKernel()->getRootDir();
+        $this->image = $this->container->get('kernel')->getRootDir().'/../web';
 
         parent::setUp();
     }
@@ -60,6 +60,7 @@ class DefaultControllerTest extends WebTestCase
 
     public function testValidUploadFileFormat()
     {
+        var_dump($this->image);die();
         $filePath = dirname(__DIR__).'/../Resources/public/images/elly.jpg';
         $file = new UploadedFile(
             $filePath,
