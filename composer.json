@@ -14,7 +14,8 @@
         "twig/twig":                        "*",
         "doctrine/doctrine-bundle":         "*",
         "erusev/parsedown": "~1.5",
-        "mykees/symfony2-media-bundle": "1.0.*@dev"
+        "mykees/symfony2-media-bundle": "1.0.*@dev",
+        "friendsofsymfony/user-bundle": "~2.0@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
