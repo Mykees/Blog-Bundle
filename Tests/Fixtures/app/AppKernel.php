@@ -30,8 +30,4 @@ class AppKernel extends Kernel
         $loader->load($this->getRootDir().'/config/config_test.yml');
     }
 
-    public function getRootDir()
-    {
-        return realpath(parent::getRootDir().'/../');
-    }
 }
