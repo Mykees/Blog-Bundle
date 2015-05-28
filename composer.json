@@ -10,22 +10,25 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "doctrine/doctrine-fixtures-bundle": "2.2.*@dev",
-        "doctrine/orm": "~2.2,>=2.2.3,<2.5",
-        "doctrine/doctrine-bundle": "~1.2",
-        "symfony/monolog-bundle": "~2.3",
-        "symfony/swiftmailer-bundle": "~2.3",
-        "sensio/framework-extra-bundle":"~2.3",
-        "symfony/assetic-bundle": "~2.3",
-        "symfony/twig-bundle": "~2.1",
-        "twig/extensions": "~1.0",
+        "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
+        "twig/twig":                        "*",
+        "doctrine/doctrine-bundle":         "*",
         "erusev/parsedown": "~1.5",
         "mykees/symfony2-media-bundle": "1.0.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
         "liip/functional-test-bundle": "dev-master",
-        "doctrine/doctrine-fixtures-bundle": "dev-master"
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+
+        "doctrine/orm": "~2.2,>=2.2.3,<2.5",
+        "doctrine/doctrine-bundle": "~1.2",
+        "symfony/monolog-bundle": "~2.3",
+        "symfony/swiftmailer-bundle": "~2.3",
+        "sensio/framework-extra-bundle": "~2.3",
+        "symfony/assetic-bundle": "~2.3",
+        "symfony/twig-bundle": "~2.1",
+        "twig/extensions": "~1.0"
     },
     "extra": {
         "branch-alias": {
