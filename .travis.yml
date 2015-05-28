@@ -20,4 +20,4 @@ after_script:
     - php Tests/Fixtures/app/console --env=test doctrine:database:drop --force
 
 script:
-    - vendor/bin/phpunit
+    - bin/phpunit
