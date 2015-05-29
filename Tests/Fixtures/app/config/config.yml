@@ -57,13 +57,3 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
-
-
-mykees_media:
-    allowExtension: ['jpg']
-    resize:
-        Post:
-            mode: inset
-            size:
-                - { width: 250, height: 250 }
-                - { width: 350, height: 350 }
