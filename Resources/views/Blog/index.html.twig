@@ -7,8 +7,10 @@
     </div>
 
     {% for post in posts %}
-       <h2><a href="{{ path('mvc_blog_show',{'slug':post.slug,'id':post.id}) }}">{{ post.name }}</a></h2>
+       <article class="posts">
+       	<h2><a href="{{ path('mvc_blog_show',{'slug':post.slug,'id':post.id}) }}">{{ post.name }}</a></h2>
         <p><small>Category : <a href="#">{{ post.category ? post.category.name : 'misc' }}</a>, by <a href="#">{{ post.user ? post.user.username : 'anonyme'}}</a> on <em>{{ post.createdAt|date('Y-m-d') }}</em></small></p>
+       </article>
     {% endfor %}
 
     {{ paginator.paginate(posts) }}
