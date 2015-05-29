@@ -5,6 +5,7 @@ namespace Mvc\BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Mvc\BlogBundle\Util\Urlizer;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Mykees\CommentBundle\Interfaces\CommentableInterface;
 
 /**
  * Post
@@ -13,7 +14,7 @@ use Symfony\Component\Validator\Constraints\DateTime;
  * @ORM\Entity(repositoryClass="Mvc\BlogBundle\Repository\PostsRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class Post
+class Post implements CommentableInterface
 {
 
     /**

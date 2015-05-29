@@ -11,4 +11,17 @@
     </article>
     <hr/>
 
+    {{ helper_comment(form) }}
+
+	<hr>
+
+	{{ comments_list(comments) }}
+
+
+{% endblock %}
+
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('bundles/mykeescomment/js/comment.js') }}"></script>
 {% endblock %}

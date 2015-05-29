@@ -30,8 +30,10 @@ class BlogController extends Controller
     public function showAction(Request $request, $slug, $id)
     {
         $post = $this->getDoctrine()->getManager()->getRepository('MvcBlogBundle:Post')->findById($id);
+        $commentForm = $this->get('mykees.comment.manager')->createForm($post);
+        $comments = $this->get('mykees.comment.manager')->findComments($post);
 
-        return $this->render('MvcBlogBundle:Blog:show.html.twig',['post'=>$post]);
+        return $this->render('MvcBlogBundle:Blog:show.html.twig',['post'=>$post,'form'=>$commentForm,'comments'=>$comments]);
     }
 
     public function getPostByCategoryAction($slug,Request $request)
