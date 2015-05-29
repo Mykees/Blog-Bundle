@@ -40,13 +40,13 @@ class AppKernel extends Kernel
      */
     public function getCacheDir()
     {
-        return sys_get_temp_dir().'/Victoire/cache';
+        return sys_get_temp_dir().'/'.$this->environment.'/cache';
     }
     /**
      * @return string
      */
     public function getLogDir()
     {
-        return sys_get_temp_dir().'/Victoire/logs';
+        return sys_get_temp_dir().'/'.$this->environment.'/logs';
     }
 }
