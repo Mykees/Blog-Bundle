@@ -21,6 +21,7 @@ class AppKernel extends Kernel
 
             new Mvc\BlogBundle\MvcBlogBundle(),
             new Liip\FunctionalTestBundle\LiipFunctionalTestBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         );
 
         return $bundles;
