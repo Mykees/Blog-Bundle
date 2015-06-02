@@ -19,8 +19,8 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             new Mvc\BlogBundle\MvcBlogBundle(),
-            new Liip\FunctionalTestBundle\LiipFunctionalTestBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Liip\FunctionalTestBundle\LiipFunctionalTestBundle(),
         );
 
         return $bundles;
