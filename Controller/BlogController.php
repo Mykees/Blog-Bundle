@@ -31,7 +31,7 @@ class BlogController extends Controller
     {
         $post = $this->getDoctrine()->getManager()->getRepository('MvcBlogBundle:Post')->findById($id);
         $commentForm = $this->get('mykees.comment.manager')->createForm($post);
-        $comments = $this->get('mykees.comment.manager')->findComments($post);
+        $comments = $this->get('mykees.comment.query.manager')->findComments($post);
 
         return $this->render('MvcBlogBundle:Blog:show.html.twig',['post'=>$post,'form'=>$commentForm,'comments'=>$comments]);
     }
@@ -68,4 +68,5 @@ class BlogController extends Controller
         ;
         return new Paginator($query, true);
     }
+    
 }
