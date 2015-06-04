@@ -72,3 +72,6 @@ mykees_media:
             size:
                 - { width: 250, height: 250 }
                 - { width: 350, height: 350 }
+
+mykees_comment:
+    comment_class: Mvc\BlogBundle\Entity\Comment
