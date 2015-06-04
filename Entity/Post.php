@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Mvc\BlogBundle\Util\Urlizer;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Mykees\CommentBundle\Interfaces\CommentableInterface;
+use Mykees\MediaBundle\Interfaces\Mediable;
+use Mykees\MediaBundle\Traits\MediableTrait;
 
 /**
  * Post
@@ -14,9 +16,9 @@ use Mykees\CommentBundle\Interfaces\CommentableInterface;
  * @ORM\Entity(repositoryClass="Mvc\BlogBundle\Repository\PostsRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class Post implements CommentableInterface
+class Post implements CommentableInterface, Mediable
 {
-
+    use MediableTrait;
     /**
      * @var integer
      *
@@ -65,6 +67,12 @@ class Post implements CommentableInterface
      * @ORM\ManyToOne(targetEntity="Mvc\BlogBundle\Entity\User")
      */
     private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Mykees\MediaBundle\Entity\Media", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="thumb_id", referencedColumnName="id")
+     */
+    private $thumb;
 
 
     public function __construct()
@@ -239,4 +247,27 @@ class Post implements CommentableInterface
         return $this->user;
     }
 
+
+    /**
+     * Set thumb
+     *
+     * @param \Mykees\MediaBundle\Entity\Media $thumb
+     * @return Post
+     */
+    public function setThumb(\Mykees\MediaBundle\Entity\Media $thumb = null)
+    {
+        $this->thumb = $thumb;
+
+        return $this;
+    }
+
+    /**
+     * Get thumb
+     *
+     * @return \Mykees\MediaBundle\Entity\Media 
+     */
+    public function getThumb()
+    {
+        return $this->thumb;
+    }
 }
