@@ -63,3 +63,12 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Mvc\BlogBundle\Entity\User
+
+mykees_media:
+    allowExtension: ['jpg']
+    resize:
+        Post:
+            mode: inset
+            size:
+                - { width: 250, height: 250 }
+                - { width: 350, height: 350 }
