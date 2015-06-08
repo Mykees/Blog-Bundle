@@ -32,6 +32,27 @@
         {{ form_row(form.content,{'attr':{'class':'form-control','rows':6,'cols':30}}) }}
     </div>
 
+    <div class="form-group">
+        {{ form_row(form.tags,{'attr':{'class':'form-control'}}) }}
+
+        {% for tag in post.getTags %}
+           {% if tag %}
+
+               <span class="label label-primary" style="display:inline-block;">
+               {{ tag.name }}
+
+               {% for tr in tag.getTagRelation %}
+
+                   <a href="{{ path('mykees_delete_relation',{'relation_id':tr.id}) }}" class="delTag" style="color:#FFF;">[x]
+                   </a>
+
+               {% endfor %}
+
+               </span>
+           {% endif %}
+        {% endfor %}
+    </div>
+
 
     <input type="submit" class="btn btn-primary" value="Envoyer">
 
@@ -39,4 +60,9 @@
 
 
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ javascript() }}
 {% endblock %}

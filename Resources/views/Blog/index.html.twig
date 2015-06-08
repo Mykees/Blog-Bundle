@@ -8,8 +8,13 @@
 
     {% for post in posts %}
        <article class="posts">
-       	<h2><a href="{{ path('mvc_blog_show',{'slug':post.slug,'id':post.id}) }}">{{ post.name }}</a></h2>
+        <h2><a href="{{ path('mvc_blog_show',{'slug':post.slug,'id':post.id}) }}">{{ post.name }}</a></h2>
         <p><small>Category : <a href="#">{{ post.category ? post.category.name : 'misc' }}</a>, by <a href="#">{{ post.user ? post.user.username : 'anonyme'}}</a> on <em>{{ post.createdAt|date('Y-m-d') }}</em></small></p>
+        {% if post.getTags() %}
+            {% for tag in post.getTags %}
+                <span class="label label-primary" style="display:inline-block"> {{ tag.name }} </span>
+            {% endfor %}
+        {% endif %}
        </article>
     {% endfor %}
 

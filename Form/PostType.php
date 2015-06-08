@@ -37,6 +37,9 @@ class PostType extends AbstractType
                 'multiple'=>false,
                 'expanded'=>false
             ])
+            ->add('tags','mk_tag',[
+                'label'=>'Les Tags:',
+            ])
         ;
     }
     

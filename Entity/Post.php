@@ -8,6 +8,8 @@ use Symfony\Component\Validator\Constraints\DateTime;
 use Mykees\CommentBundle\Interfaces\CommentableInterface;
 use Mykees\MediaBundle\Interfaces\Mediable;
 use Mykees\MediaBundle\Traits\MediableTrait;
+use Mykees\TagBundle\Interfaces\Taggable;
+use Mykees\TagBundle\Traits\TaggableTrait;
 
 /**
  * Post
@@ -16,9 +18,10 @@ use Mykees\MediaBundle\Traits\MediableTrait;
  * @ORM\Entity(repositoryClass="Mvc\BlogBundle\Repository\PostsRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class Post implements CommentableInterface, Mediable
+class Post implements CommentableInterface, Mediable, Taggable
 {
     use MediableTrait;
+    use TaggableTrait;
     /**
      * @var integer
      *

@@ -33,6 +33,7 @@ class BlogController extends Controller
         
         $commentForm = $this->get('mykees.comment.manager')->createForm($post);
         $comments = $this->get('mykees.comment.query.manager')->findComments($post);
+        $this->get('mk.tag_manager')->findTagRelation($post);
 
         return $this->render('MvcBlogBundle:Blog:show.html.twig',['post'=>$post,'form'=>$commentForm,'comments'=>$comments]);
     }
@@ -55,6 +56,7 @@ class BlogController extends Controller
     public function getPosts(Request $request,$conditions=array())
     {
         $p = $this->getDoctrine()->getManager()->getRepository('MvcBlogBundle:Post')->findAllQuery($conditions);
+        $this->get('mk.tag_manager')->findTagRelation($p->getResult());
         $posts = $this->paginate($request, $p);
 
         return $this->render('MvcBlogBundle:Blog:index.html.twig',['posts'=>$posts]);

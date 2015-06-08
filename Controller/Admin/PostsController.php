@@ -58,6 +58,7 @@ class PostsController extends Controller{
     {
         $post = $this->em()->getRepository('MvcBlogBundle:Post')->find($id);
         $category_id = $post->getCategory() != null ? $post->getCategory()->getId() : null;
+        $this->get('mk.tag_manager')->findTagRelation($post);
         $form = $this->get('form.factory')->create(
             new PostType(),
             $post,

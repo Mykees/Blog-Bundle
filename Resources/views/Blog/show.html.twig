@@ -10,12 +10,18 @@
         {{ post.content|md2html }}
     </article>
     <hr/>
+    {% if post.getTags() %}
+        {% for tag in post.getTags %}
+            <span class="label label-primary" style="display:inline-block"> {{ tag.name }} </span>
+        {% endfor %}
+    {% endif %}
+    <hr>
 
     {{ helper_comment(form) }}
 
-	<hr>
+    <hr>
 
-	{{ comments_list(comments) }}
+    {{ comments_list(comments) }}
 
 
 {% endblock %}
