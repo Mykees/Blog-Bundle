@@ -4,7 +4,6 @@ namespace Mvc\BlogBundle\Controller;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Mvc\BlogBundle\Entity\Comment;
-use Mvc\BlogBundle\Form\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -30,12 +29,19 @@ class BlogController extends Controller
     public function showAction(Request $request, $slug, $id)
     {
         $post = $this->getDoctrine()->getManager()->getRepository('MvcBlogBundle:Post')->findById($id);
-        
-        $commentForm = $this->get('mykees.comment.manager')->createForm($post);
+
+        $form = $this->get('mykees.comment.manager')->createForm($post,[
+            'username'=>'Nom:',
+            'email'=>'Email:'
+        ]);
         $comments = $this->get('mykees.comment.query.manager')->findComments($post);
         $this->get('mk.tag_manager')->findTagRelation($post);
 
-        return $this->render('MvcBlogBundle:Blog:show.html.twig',['post'=>$post,'form'=>$commentForm,'comments'=>$comments]);
+        return $this->render('MvcBlogBundle:Blog:show.html.twig',[
+            'post'=>$post,
+            'form'=>$form,
+            'comments'=>$comments
+        ]);
     }
 
     public function getPostByCategoryAction($slug,Request $request)
@@ -71,5 +77,5 @@ class BlogController extends Controller
         ;
         return new Paginator($query, true);
     }
-    
+
 }

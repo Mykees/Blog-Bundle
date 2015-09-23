@@ -8,6 +8,7 @@ use Mykees\CommentBundle\Entity\Comment as CommentParent;
 
 /**
 * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Mykees\CommentBundle\Repository\CommentRepository")
 * @ORM\HasLifecycleCallbacks
 */
 class Comment extends CommentParent
