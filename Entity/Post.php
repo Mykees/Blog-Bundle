@@ -5,7 +5,7 @@ namespace Mvc\BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Mvc\BlogBundle\Util\Urlizer;
 use Symfony\Component\Validator\Constraints\DateTime;
-use Mykees\CommentBundle\Interfaces\CommentableInterface;
+use Mykees\CommentBundle\Interfaces\IsCommentable;
 use Mykees\MediaBundle\Interfaces\Mediable;
 use Mykees\MediaBundle\Traits\MediableTrait;
 use Mykees\TagBundle\Interfaces\Taggable;
@@ -18,7 +18,7 @@ use Mykees\TagBundle\Traits\TaggableTrait;
  * @ORM\Entity(repositoryClass="Mvc\BlogBundle\Repository\PostsRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class Post implements CommentableInterface, Mediable, Taggable
+class Post implements IsCommentable, Mediable, Taggable
 {
     use MediableTrait;
     use TaggableTrait;
@@ -105,7 +105,7 @@ class Post implements CommentableInterface, Mediable, Taggable
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -128,7 +128,7 @@ class Post implements CommentableInterface, Mediable, Taggable
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -151,7 +151,7 @@ class Post implements CommentableInterface, Mediable, Taggable
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -174,7 +174,7 @@ class Post implements CommentableInterface, Mediable, Taggable
     /**
      * Get content
      *
-     * @return string 
+     * @return string
      */
     public function getContent()
     {
@@ -197,7 +197,7 @@ class Post implements CommentableInterface, Mediable, Taggable
     /**
      * Get createdAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -220,7 +220,7 @@ class Post implements CommentableInterface, Mediable, Taggable
     /**
      * Get category
      *
-     * @return \Mvc\BlogBundle\Entity\Category 
+     * @return \Mvc\BlogBundle\Entity\Category
      */
     public function getCategory()
     {
@@ -243,7 +243,7 @@ class Post implements CommentableInterface, Mediable, Taggable
     /**
      * Get user
      *
-     * @return \Mvc\BlogBundle\Entity\User 
+     * @return \Mvc\BlogBundle\Entity\User
      */
     public function getUser()
     {
@@ -267,7 +267,7 @@ class Post implements CommentableInterface, Mediable, Taggable
     /**
      * Get thumb
      *
-     * @return \Mykees\MediaBundle\Entity\Media 
+     * @return \Mykees\MediaBundle\Entity\Media
      */
     public function getThumb()
     {
