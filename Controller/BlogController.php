@@ -39,7 +39,7 @@ class BlogController extends Controller
 
         return $this->render('MvcBlogBundle:Blog:show.html.twig',[
             'post'=>$post,
-            'form'=>$form,
+            'form'=>$form->createView(),
             'comments'=>$comments
         ]);
     }
