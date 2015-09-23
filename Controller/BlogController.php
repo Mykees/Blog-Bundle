@@ -26,9 +26,9 @@ class BlogController extends Controller
         return $this->getPosts($request);
     }
 
-    public function showAction(Request $request, $slug, $id)
+    public function showAction(Request $request, $slug)
     {
-        $post = $this->getDoctrine()->getManager()->getRepository('MvcBlogBundle:Post')->findById($id);
+        $post = $this->getDoctrine()->getManager()->getRepository('MvcBlogBundle:Post')->findById($slug);
 
         $form = $this->get('mykees.comment.manager')->createForm($post,[
             'username'=>'Nom:',

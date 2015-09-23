@@ -9,8 +9,7 @@ mvc_blog_by_category:
         slug: '[a-zA-Z0-9\-]+'
 
 mvc_blog_show:
-    path:     /blog/{slug}-{id}
+    path:     /blog/{slug}
     defaults: { _controller: MvcBlogBundle:Blog:show }
     requirements:
         slug: '[a-zA-Z0-9\-]+'
-        id: \d+
